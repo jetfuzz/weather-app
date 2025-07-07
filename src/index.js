@@ -1,8 +1,10 @@
 import "./style.css";
 import * as api from "./api";
 
-console.log('test');
+async function showWeatherData(location) {
+    let weatherData = await api.getWeatherData(location);
+    let processedWeatherData = api.processWeatherData(weatherData);
+    return processedWeatherData;
+}
 
-let weatherTest = api.getWeatherData("Vancouver");
-
-console.log(weatherTest);
+console.log(showWeatherData("Vancouver"));
