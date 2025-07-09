@@ -9,8 +9,12 @@ async function showWeatherData(location) {
     return processedWeatherData;
 }
 
-searchForm.addEventListener("submit", (e) => {
+searchForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const searchQuery =  document.getElementById("search-input").value;
-    console.log(showWeatherData(searchQuery));
+    try {
+        const searchQuery =  document.getElementById("search-input").value;
+        console.log(await showWeatherData(searchQuery));
+    } catch (error) {
+        console.log(error);
+    }
 })

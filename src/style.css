@@ -48,35 +48,60 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+:root {
+	  --bg-primary: #1a1a1a;
+	  --bg-secondary: #2d2d2d;
+	  --accent: #3b82f6;
+	  --text-primary: #f8fafc;
+	  --text-secondary: #cbd5e1;
+	}
 
 * {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #0B121E;
-  color: white;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  /* border: 1px solid black; */
 }
 
-/* header */
-.header-div {
+.main-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* header section */
+header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.18em;
+  margin: 18px;
+  /* margin: 22px; */
 }
 
 .search-form {
   margin: 10px;
   border-radius: 6px;
+  display: flex;
+  height: 40px;
 }
 
 .search-form:focus-within {
-  outline: 1px solid #60A5FA
+  outline: 1px solid var(--accent);
 }
 
 #search-input {
-  background-color: #202B3C;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
   border: none;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   margin: 0;
   padding: 8px;
+  font-size: 0.92em;
 }
 
 #search-input:focus {
@@ -84,17 +109,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-btn {
-  background-color: #202B3C;
+  background-color: var(--bg-secondary);
   border: none;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
-  margin-left: -6px;
+  margin: 0 0 0 -6px;
   padding: 8px;
   cursor: pointer;
 }
 
-.search-error {
-  position: absolute;
-  margin-top: 60px;
+.search-svg {
+  background-color: #2d2d2d;
 }
 
+.temp-convert {
+  display: flex;
+  gap: 6px;
+  margin: 16px;
+}
+
+.temp-button {
+  font-size: 0.92em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  border: none;
+  border-radius: 26px;
+  width: 48px;
+  height: 34px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.active {
+  border: 2px solid var(--accent);
+  /* background-color: #3b82f6; */
+}
+
+/* current weather */
+
+.current-weather {
+  background-color: #2d2d2d;
+  border: 3px solid #2d2d2d;
+}
