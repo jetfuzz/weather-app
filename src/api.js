@@ -12,7 +12,7 @@ async function getWeatherData(location) {
         const weatherData = await response.json();
         return weatherData;
     } catch (error) {
-        console.log(`Error: ${error}`);
+        throw error
     }
 }
 

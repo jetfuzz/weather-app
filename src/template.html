@@ -18,23 +18,77 @@
                 </button>
             </form>
             <div class="temp-convert">
-                <button class="temp-button active">&deg;C</button> 
-                <button class="temp-button">&deg;F</button>
+                <button id="farenheit-btn" class="temp-button">&deg;C</button>
+                <button id="celsius-btn" class="temp-button active">&deg;F</button>
             </div>
         </header>
 
-        <!-- <div class="current-weather">
-            <h1>27.7&deg;C ⛅</h1>
-            <p>Partially cloudy</p>
-        </div> -->
-        <div class="conditions">
-
+        <div class="current-weather">
+            <h2 class="main-location">Madrid</h2>
+            <h1 class="main-temp">27.7&deg; ⛅</h1>
+            <p class="main-conditions">Partially cloudy</p>
+        </div>
+        <div class="current-conditions">
+            <h3>Air Conditions</h3>
+            <div class="conditions-grid">
+                <div class="conditions">
+                    <p>Feels Like</p>
+                    <p id="feels-like">26.4&deg;</p>
+                </div>
+                <div class="conditions">
+                    <p>Chance of rain</p>
+                    <p id="rain-chance">0%</p>
+                </div>
+                <div class="conditions">
+                    <p>Wind</p>
+                    <p id="wind">0.4km/h</p>
+                </div>
+                <div class="conditions">
+                    <p>UV Index</p>
+                    <p id="uv-index">3</p>
+                </div>
+            </div>
         </div>
         <div class="day-forecast">
-
+            <h3>Today's Forecast</h3>
+            <div class="forecast-items">
+                <!-- <div class="forecast-item">
+                    <p>6:00 AM</p>
+                    <p class="forecast-icon">☁️</p>
+                    <p>25&deg;</p>
+                </div>
+                <div class="forecast-item">
+                    <p>6:00 AM</p>
+                    <p class="forecast-icon">☁️</p>
+                    <p>25&deg;</p>
+                </div>
+                <div class="forecast-item">
+                    <p>6:00 AM</p>
+                    <p class="forecast-icon">☁️</p>
+                    <p>25&deg;</p>
+                </div>
+                 <div class="forecast-item">
+                    <p>6:00 AM</p>
+                    <p class="forecast-icon">☁️</p>
+                    <p>25&deg;</p>
+                </div>
+                 <div class="forecast-item">
+                    <p>6:00 AM</p>
+                    <p class="forecast-icon">☁️</p>
+                    <p>25&deg;</p>
+                </div>
+                 <div class="forecast-item">
+                    <p>6:00 AM</p>
+                    <p class="forecast-icon">☁️</p>
+                    <p>25&deg;</p>
+                </div> -->
+            </div>
         </div>
         <div class="week-forecast">
-
+            <h3>7-Day Forecast</h3>
+            <div class="forecast-items">
+                
+            </div>
         </div>
 
     </div>

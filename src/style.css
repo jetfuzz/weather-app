@@ -56,30 +56,30 @@ h1, h2, h3, h4, h5, h6 {
 	  --text-secondary: #cbd5e1;
 	}
 
-* {
+body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  /* border: 1px solid black; */
 }
 
 .main-content {
-  max-width: 1200px;
+  max-width: 1150px;
   margin: auto;
   padding: 0 20px;
 }
 
-/* header section */
+/* header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
 }
+
 
 .logo {
   font-size: 1.18em;
   margin: 18px;
-  /* margin: 22px; */
 }
 
 .search-form {
@@ -87,6 +87,7 @@ header {
   border-radius: 6px;
   display: flex;
   height: 40px;
+  width: 300px;
 }
 
 .search-form:focus-within {
@@ -95,13 +96,14 @@ header {
 
 #search-input {
   background-color: var(--bg-secondary);
-  color: var(--text-secondary);
+  color: var(--text-primary);
   border: none;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   margin: 0;
   padding: 8px;
   font-size: 0.92em;
+  width: 92%;
 }
 
 #search-input:focus {
@@ -129,6 +131,7 @@ header {
 }
 
 .temp-button {
+  color: var(--text-secondary);
   font-size: 0.92em;
   display: flex;
   justify-content: center;
@@ -144,12 +147,65 @@ header {
 
 .active {
   border: 2px solid var(--accent);
-  /* background-color: #3b82f6; */
 }
 
 /* current weather */
-
 .current-weather {
-  background-color: #2d2d2d;
-  border: 3px solid #2d2d2d;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  padding: 30px;
+}
+
+.main-location {
+  font-size: 2em;
+  color: var(--text-primary);
+}
+
+.main-temp {
+  font-size: 3.7em;
+  padding: 5px 0;
+  color: var(--text-primary);
+}
+
+/* conditions */
+.current-conditions, .day-forecast, .week-forecast {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 25px;
+  margin-top: 5px;
+  padding: 12px 18px;
+}
+
+/* forecast */
+.forecast-items {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0;
+  overflow: scroll;
+}
+
+.forecast-item {
+  margin: 15px 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.92em;
+}
+
+.forecast-item:not(:last-child) {
+  border-right: 1px solid grey;
+}
+
+.forecast-icon {
+  font-size: 2em;
 }
