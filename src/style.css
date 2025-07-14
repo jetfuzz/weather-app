@@ -49,12 +49,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root {
-	  --bg-primary: #1a1a1a;
-	  --bg-secondary: #2d2d2d;
-	  --accent: #3b82f6;
-	  --text-primary: #f8fafc;
-	  --text-secondary: #cbd5e1;
-	}
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --accent: #3b82f6;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+}
 
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -161,10 +161,20 @@ header {
   color: var(--text-primary);
 }
 
+.temp-container {
+  display: flex;
+  align-items: center;
+}
+
 .main-temp {
   font-size: 3.7em;
   padding: 5px 0;
   color: var(--text-primary);
+}
+
+.main-icon {
+  height: 69px;
+  margin-left: 4px;
 }
 
 /* conditions */

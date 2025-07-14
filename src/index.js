@@ -10,16 +10,32 @@ async function getAndProcessWeatherData(location) {
     return processedWeatherData;
 }
 
+async function displayDefault() {
+    try {
+        let weatherData = await getAndProcessWeatherData("vancouver");
+         dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
+        dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 searchForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     try {
         const searchQuery =  document.getElementById("search-input").value;
         let weatherData = await getAndProcessWeatherData(searchQuery);
         console.log(weatherData)
-        // dom.clearCurrentWeather();
+
         dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
         dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
     } catch (error) {
         console.log(error);
+        //create modal for invalid locations
+        //dom.displayError();
     }
+})
+
+window.addEventListener("load", () => {
+    displayDefault();
 })

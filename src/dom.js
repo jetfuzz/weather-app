@@ -3,14 +3,35 @@ export {
     updateConditions,
 }
 
-function updateCurrentWeather(location, temp, icon, conditions) {
-    let currentWeatherDiv = document.querySelector(".current-weather");
+import * as utils from "./utils";
 
-    currentWeatherDiv.innerHTML = `
-        <h2 class="main-location">${location}</h2>
-        <h1 class="main-temp">${temp}&deg; ${icon}</h1>
-        <p class="main-conditions">${conditions}</p>
-    `;
+async function updateCurrentWeather(location, temp, icon, conditions) {
+    let currentWeatherDiv = document.querySelector(".current-weather");
+    currentWeatherDiv.innerHTML = ""
+
+    let currentLocation = document.createElement("h2");
+    currentLocation.className = "main-location";
+    currentLocation.innerHTML = location;
+
+    let tempContainer = document.createElement("div");
+    tempContainer.className = "temp-container";
+
+    let currentTemp = document.createElement("h1");
+    currentTemp.className = "main-temp";
+    currentTemp.innerHTML = `${temp}°`
+
+    let currentIcon = document.createElement("img");
+    currentIcon.src = await utils.getWeatherIcon(icon);
+    currentIcon.className = "main-icon";
+
+    let currentConditions = document.createElement("p");
+    currentConditions.innerHTML = conditions;
+
+    tempContainer.appendChild(currentTemp)
+    tempContainer.appendChild(currentIcon)
+    currentWeatherDiv.appendChild(currentLocation);
+    currentWeatherDiv.appendChild(tempContainer);
+    currentWeatherDiv.appendChild(currentConditions);
 }
 
 function updateConditions(feelsLike, rainChance, wind, uvIndex) {
