@@ -13,8 +13,9 @@ async function getAndProcessWeatherData(location) {
 async function displayDefault() {
     try {
         let weatherData = await getAndProcessWeatherData("vancouver");
-         dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
+        dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
         dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
+        dom.displayHourForecast(weatherData);
     } catch (error) {
         console.log(error);
     }
@@ -29,9 +30,9 @@ searchForm.addEventListener("submit", async (e) => {
 
         dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
         dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
+        dom.displayHourForecast(weatherData);
     } catch (error) {
         console.log(error);
-        //create modal for invalid locations
         //dom.displayError();
     }
 })

@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyview</title>
+    <link rel="icon" href="./assets/icons/clear-night.svg">
 </head>
 <body>
     <div class="main-content">
+
         <header>
             <div class="logo">
-                <p>⛅ Skyview</p>
+                <img src="./assets/icons/clear-night.svg" alt="logo">
+                <p>Skyview</p>
             </div>
             <form class="search-form">
                 <input type="text" id="search-input" placeholder="Search location" required minlength="2" maxlength="50">
@@ -24,61 +27,47 @@
         </header>
 
         <div class="current-weather">
+
         </div>
+
         <div class="current-conditions">
             <h3>Air Conditions</h3>
             <div class="conditions-grid">
                 <div class="conditions">
-                    <p>Feels Like</p>
-                    <p id="feels-like"></p>
+                    <div class="conditions-container">
+                        <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 19C12.5523 19 13 18.5523 13 18C13 17.4477 12.5523 17 12 17C11.4477 17 11 17.4477 11 18C11 18.5523 11.4477 19 12 19Z" fill="#cbd5e1"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M15 13.9997C16.2144 14.9119 17 16.3642 17 18C17 20.7614 14.7614 23 12 23C9.23858 23 7 20.7614 7 18C7 16.3642 7.78555 14.9119 9 13.9997V4C9 2.34315 10.3431 1 12 1C13.6569 1 15 2.34315 15 4V13.9997ZM13 4V15.1707C14.1652 15.5826 15 16.6938 15 18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18C9 16.6938 9.83481 15.5826 11 15.1707V4C11 3.44772 11.4477 3 12 3C12.5523 3 13 3.44772 13 4Z" fill="#cbd5e1"></path> </g></svg>
+                        <p>Feels Like</p>
+                    </div>
+                    <p id="feels-like" class="conditions-item"></p>
                 </div>
                 <div class="conditions">
-                    <p>Chance of rain</p>
-                    <p id="rain-chance"></p>
+                    <div class="conditions-container">
+                        <svg fill="#cbd5e1" width="22px" height="22px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style> .cls-1 { fill: none; } </style> </defs> <title>rain-drop</title> <path d="M16,24V22a3.2965,3.2965,0,0,0,3-3h2A5.2668,5.2668,0,0,1,16,24Z"></path> <path d="M16,28a9.0114,9.0114,0,0,1-9-9,9.9843,9.9843,0,0,1,1.4941-4.9554L15.1528,3.4367a1.04,1.04,0,0,1,1.6944,0l6.6289,10.5564A10.0633,10.0633,0,0,1,25,19,9.0114,9.0114,0,0,1,16,28ZM16,5.8483l-5.7817,9.2079A7.9771,7.9771,0,0,0,9,19a7,7,0,0,0,14,0,8.0615,8.0615,0,0,0-1.248-3.9953Z"></path> <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"></rect> </g></svg>
+                        <p>Chance of rain</p>
+                    </div>
+                    <p id="rain-chance" class="conditions-item"></p>
                 </div>
                 <div class="conditions">
-                    <p>Wind</p>
-                    <p id="wind"></p>
+                    <div class="conditions-container">
+                        <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#cbd5e1"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.7639 7C16.3132 6.38625 17.1115 6 18 6C19.6569 6 21 7.34315 21 9C21 10.6569 19.6569 12 18 12H3M8.50926 4.66667C8.87548 4.2575 9.40767 4 10 4C11.1046 4 12 4.89543 12 6C12 7.10457 11.1046 8 10 8H3M11.5093 19.3333C11.8755 19.7425 12.4077 20 13 20C14.1046 20 15 19.1046 15 18C15 16.8954 14.1046 16 13 16H3" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <p>Wind</p>
+                    </div>
+                    <p id="wind" class="conditions-item"></p>
                 </div>
                 <div class="conditions">
-                    <p>UV Index</p>
-                    <p id="uv-index"></p>
+                    <div class="conditions-container">
+                        <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#cbd5e1"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <p>UV Index</p>
+                    </div>
+                    <p id="uv-index" class="conditions-item"></p>
                 </div>
             </div>
         </div>
+        
         <div class="day-forecast">
             <h3>Today's Forecast</h3>
             <div class="forecast-items">
-                <!-- <div class="forecast-item">
-                    <p>6:00 AM</p>
-                    <p class="forecast-icon">☁️</p>
-                    <p>25&deg;</p>
-                </div>
-                <div class="forecast-item">
-                    <p>6:00 AM</p>
-                    <p class="forecast-icon">☁️</p>
-                    <p>25&deg;</p>
-                </div>
-                <div class="forecast-item">
-                    <p>6:00 AM</p>
-                    <p class="forecast-icon">☁️</p>
-                    <p>25&deg;</p>
-                </div>
-                 <div class="forecast-item">
-                    <p>6:00 AM</p>
-                    <p class="forecast-icon">☁️</p>
-                    <p>25&deg;</p>
-                </div>
-                 <div class="forecast-item">
-                    <p>6:00 AM</p>
-                    <p class="forecast-icon">☁️</p>
-                    <p>25&deg;</p>
-                </div>
-                 <div class="forecast-item">
-                    <p>6:00 AM</p>
-                    <p class="forecast-icon">☁️</p>
-                    <p>25&deg;</p>
-                </div> -->
+                
             </div>
         </div>
         <div class="week-forecast">
