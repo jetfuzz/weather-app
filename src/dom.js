@@ -72,7 +72,7 @@ async function createHourForecastElement(time, icon, temp) {
 async function displayHourForecast(weatherData) {
     let forecastContainer = document.querySelector(".forecast-items");
 
-    console.log(weatherData.hourlyForecast)
+    // console.log(weatherData.hourlyForecast)
 
     for (let hour of weatherData.hourlyForecast) {
         let  time = utils.tConvert(hour.time).replace(":00:00", " ")

@@ -235,3 +235,59 @@ header {
   font-weight: 700;
   font-size: 1.4em;
 }
+
+/* 7 day forecast */
+
+.week-forecast-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.week-forecast-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.week-forecast-container > p { 
+  font-weight: 600;
+}
+
+/* loader */
+
+dialog {
+  background: transparent;
+  border: none;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 60px;
+}
+
+dialog:focus {
+  border: none;
+  outline: none;
+}
+
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  background: transparent;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
