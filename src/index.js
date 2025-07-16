@@ -36,10 +36,14 @@ searchForm.addEventListener("submit", async (e) => {
     } catch (error) {
         console.log(error);
         loader.close();
-        //dom.displayError();
+        dom.displayError(error);
     }
 })
 
 window.addEventListener("load", () => {
     displayDefault();
+})
+
+window.addEventListener("click", () => {
+    dom.hideError();
 })

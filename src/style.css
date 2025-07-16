@@ -152,6 +152,23 @@ header {
   border: 2px solid var(--accent);
 }
 
+.search-error {
+  transition: all 0.2s;
+  visibility: hidden;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  position: fixed;
+  left: 0; 
+  right: 0; 
+  top: 65px;
+  margin-inline: auto; 
+  width: fit-content;
+  background-color: #7f1d1d;
+  padding: 7px;
+  border-radius: 6px;
+}
+
 /* current weather */
 .current-weather {
   border-radius: 6px;
@@ -237,11 +254,14 @@ header {
 }
 
 /* 7 day forecast */
+.week-forecast-items {
+  margin-top: 10px;
+}
 
 .week-forecast-item {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 25px;
 }
 
 .week-forecast-container {
@@ -255,7 +275,6 @@ header {
 }
 
 /* loader */
-
 dialog {
   background: transparent;
   border: none;
@@ -269,7 +288,6 @@ dialog:focus {
   border: none;
   outline: none;
 }
-
 
 .loader {
   width: 48px;

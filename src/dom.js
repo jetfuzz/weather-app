@@ -2,6 +2,8 @@ export {
     updateCurrentWeather,
     updateConditions,
     displayHourForecast,
+    displayError,
+    hideError,
 }
 
 import * as utils from "./utils";
@@ -41,10 +43,10 @@ function updateConditions(feelsLike, rainChance, wind, uvIndex) {
     let windEle = document.getElementById("wind");
     let uvIndexEle = document.getElementById("uv-index");
 
-    feelsLikeEle.textContent = `${Math.round(feelsLike)}°`;
-    rainChanceEle.textContent = `${rainChance}%`;
-    windEle.textContent = `${wind} m/ph`;
-    uvIndexEle.textContent = uvIndex;
+    feelsLikeEle.innerHTML = `${Math.round(feelsLike)}°`;
+    rainChanceEle.innerHTML = `${rainChance}%`;
+    windEle.innerHTML = `${wind} m/ph`;
+    uvIndexEle.innerHTML = uvIndex;
 }
 
 async function createHourForecastElement(time, icon, temp) {
@@ -71,12 +73,31 @@ async function createHourForecastElement(time, icon, temp) {
 
 async function displayHourForecast(weatherData) {
     let forecastContainer = document.querySelector(".forecast-items");
+    forecastContainer.innerHTML = "";
 
     // console.log(weatherData.hourlyForecast)
 
     for (let hour of weatherData.hourlyForecast) {
-        let  time = utils.tConvert(hour.time).replace(":00:00", " ")
+        let  time = utils.tConvert(hour.time).replace(":00:00", " ");
         let forecastDiv = await createHourForecastElement(time, hour.icon, Math.round(hour.temp));
         forecastContainer.appendChild(forecastDiv);
     }
+}
+
+function displayError(error) {
+    let errorDiv = document.querySelector(".search-error");
+    let errorMessage = document.querySelector(".error-message");
+    let timer = 3000;
+
+    errorDiv.style.visibility = "visible";
+    errorMessage.innerHTML = error;
+
+    setTimeout(() => {
+        errorDiv.style.visibility = "hidden";
+    }, timer);
+}
+
+function hideError() {
+    let errorDiv = document.querySelector(".search-error");
+    errorDiv.style.visibility = "hidden";   
 }
