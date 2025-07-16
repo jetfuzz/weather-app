@@ -4,11 +4,13 @@ export {
     displayHourForecast,
     displayError,
     hideError,
+    setActiveBtn,
 }
 
 import * as utils from "./utils";
 
 async function updateCurrentWeather(location, temp, icon, conditions) {
+
     let currentWeatherDiv = document.querySelector(".current-weather");
     currentWeatherDiv.innerHTML = ""
 
@@ -21,7 +23,7 @@ async function updateCurrentWeather(location, temp, icon, conditions) {
 
     let currentTemp = document.createElement("h1");
     currentTemp.className = "main-temp";
-    currentTemp.innerHTML = `${Math.round(temp)}°`
+    currentTemp.innerHTML = `${utils.formatTemp(temp)}°`
 
     let currentIcon = document.createElement("img");
     currentIcon.src = await utils.getWeatherIcon(icon);
@@ -43,7 +45,7 @@ function updateConditions(feelsLike, rainChance, wind, uvIndex) {
     let windEle = document.getElementById("wind");
     let uvIndexEle = document.getElementById("uv-index");
 
-    feelsLikeEle.innerHTML = `${Math.round(feelsLike)}°`;
+    feelsLikeEle.innerHTML = `${utils.formatTemp(feelsLike)}°`;
     rainChanceEle.innerHTML = `${rainChance}%`;
     windEle.innerHTML = `${wind} m/ph`;
     uvIndexEle.innerHTML = uvIndex;
@@ -62,7 +64,7 @@ async function createHourForecastElement(time, icon, temp) {
 
     let forecastTemp = document.createElement("p");
     forecastTemp.className = "forecast-temp";
-    forecastTemp.innerHTML = `${temp}°`;
+    forecastTemp.innerHTML = `${utils.formatTemp(temp)}°`;
 
     forecastDiv.appendChild(forecastTime);
     forecastDiv.appendChild(forecastIcon);
@@ -74,8 +76,6 @@ async function createHourForecastElement(time, icon, temp) {
 async function displayHourForecast(weatherData) {
     let forecastContainer = document.querySelector(".forecast-items");
     forecastContainer.innerHTML = "";
-
-    // console.log(weatherData.hourlyForecast)
 
     for (let hour of weatherData.hourlyForecast) {
         let  time = utils.tConvert(hour.time).replace(":00:00", " ");
@@ -100,4 +100,16 @@ function displayError(error) {
 function hideError() {
     let errorDiv = document.querySelector(".search-error");
     errorDiv.style.visibility = "hidden";   
+}
+
+function setActiveBtn() {
+    const celsiusBtn = document.getElementById("celsius-btn");
+    const farenheitBtn = document.getElementById("farenheit-btn");
+  if (utils.getCurrentTempUnit() === "C") {
+    celsiusBtn.classList.add("active");
+    farenheitBtn.classList.remove("active");
+  } else {
+    celsiusBtn.classList.remove("active");
+    farenheitBtn.classList.add("active");
+  }
 }
