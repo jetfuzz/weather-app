@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -24,27 +26,46 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
@@ -54,10 +75,23 @@ h1, h2, h3, h4, h5, h6 {
   --accent: #3b82f6;
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
+  --error-bg: #7f1d1d;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
@@ -75,7 +109,6 @@ header {
   align-items: center;
   margin-bottom: 40px;
 }
-
 
 .logo {
   font-size: 1.18em;
@@ -159,12 +192,12 @@ header {
   gap: 6px;
   align-items: center;
   position: fixed;
-  left: 0; 
-  right: 0; 
+  left: 0;
+  right: 0;
   top: 65px;
-  margin-inline: auto; 
+  margin-inline: auto;
   width: fit-content;
-  background-color: #7f1d1d;
+  background-color: var(--error-bg);
   padding: 7px;
   border-radius: 6px;
 }
@@ -198,7 +231,9 @@ header {
 }
 
 /* conditions */
-.current-conditions, .day-forecast, .week-forecast {
+.current-conditions,
+.day-forecast,
+.week-forecast {
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
   border-radius: 6px;
@@ -270,7 +305,7 @@ header {
   gap: 12px;
 }
 
-.week-forecast-container > p { 
+.week-forecast-container > p {
   font-weight: 600;
 }
 
@@ -292,7 +327,7 @@ dialog:focus {
 .loader {
   width: 48px;
   height: 48px;
-  border: 5px solid #FFF;
+  border: 5px solid #fff;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
@@ -308,4 +343,4 @@ dialog:focus {
   100% {
     transform: rotate(360deg);
   }
-} 
+}
