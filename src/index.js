@@ -21,10 +21,14 @@ searchForm.addEventListener("submit", async (e) => {
     loader.showModal();
     try {
         const searchQuery =  document.getElementById("search-input").value;
-        weatherData = await getAndProcessWeatherData(searchQuery);        
+        weatherData = await getAndProcessWeatherData(searchQuery);       
+        
+        console.log(weatherData)
+        
         dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
         dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
-        dom.displayHourForecast(weatherData);
+        dom.displayHourlyForecast(weatherData);
+        dom.displayWeekForecast(weatherData);
         loader.close();
     } catch (error) {
         console.log(error);
@@ -38,7 +42,8 @@ celsiusBtn.addEventListener("click", () => {
     dom.setActiveBtn();
     dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
     dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
-    dom.displayHourForecast(weatherData);
+    dom.displayHourlyForecast(weatherData);
+    dom.displayWeekForecast(weatherData);
 })
 
 farenheitBtn.addEventListener("click", () => {
@@ -46,7 +51,8 @@ farenheitBtn.addEventListener("click", () => {
     dom.setActiveBtn();
     dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
     dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
-    dom.displayHourForecast(weatherData);
+    dom.displayHourlyForecast(weatherData);
+    dom.displayWeekForecast(weatherData);
 })
 
 async function displayDefault() {
@@ -54,7 +60,8 @@ async function displayDefault() {
         weatherData = await getAndProcessWeatherData("vancouver");
         dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
         dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
-        dom.displayHourForecast(weatherData);
+        dom.displayHourlyForecast(weatherData);
+        dom.displayWeekForecast(weatherData);
     } catch (error) {
         console.log(error);
         dom.displayError(error);

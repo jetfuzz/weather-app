@@ -22,6 +22,7 @@ async function getWeatherData(location) {
 }
 
 function processWeatherData(weatherData) {
+    let dailyForecastDays = 14
     return {
         resolvedAddress: weatherData.resolvedAddress,
         conditions: weatherData.currentConditions.conditions,
@@ -39,7 +40,7 @@ function processWeatherData(weatherData) {
             temp: hour.temp
         })),
 
-        dailyForecast: weatherData.days.slice(0, 7).map(day => ({
+        dailyForecast: weatherData.days.slice(0, dailyForecastDays).map(day => ({
             date: day.datetime,
             icon: day.icon,
             conditions: day.conditions,

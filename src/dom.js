@@ -1,7 +1,8 @@
 export {
     updateCurrentWeather,
     updateConditions,
-    displayHourForecast,
+    displayHourlyForecast,
+    displayWeekForecast,
     displayError,
     hideError,
     setActiveBtn,
@@ -73,7 +74,7 @@ async function createHourForecastElement(time, icon, temp) {
     return forecastDiv;
 }
 
-async function displayHourForecast(weatherData) {
+async function displayHourlyForecast(weatherData) {
     let forecastContainer = document.querySelector(".forecast-items");
     forecastContainer.innerHTML = "";
 
@@ -81,6 +82,43 @@ async function displayHourForecast(weatherData) {
         let  time = utils.tConvert(hour.time).replace(":00:00", " ");
         let forecastDiv = await createHourForecastElement(time, hour.icon, Math.round(hour.temp));
         forecastContainer.appendChild(forecastDiv);
+    }
+}
+
+async function createDayForecastElement(date, icon, conditions, high, low) {
+    let forecastItem = document.createElement("div");
+    forecastItem.className = "week-forecast-item";
+
+    let datePara = document.createElement("p");
+    datePara.innerHTML = date;
+
+    let forecastContainer = document.createElement("div");
+    forecastContainer.className = "week-forecast-container";
+    let forecastIcon = document.createElement("img"); 
+    forecastIcon.src = await utils.getWeatherIcon(icon);
+    forecastIcon.alt = "weather icon";
+    let forecastConditions = document.createElement("p");
+    forecastConditions.innerHTML = conditions;
+
+    let highLowPara = document.createElement("p");
+    highLowPara.innerHTML = `${utils.formatTemp(high)}°/${utils.formatTemp(low)}°`;
+
+    forecastContainer.appendChild(forecastIcon);
+    forecastContainer.appendChild(forecastConditions);
+    forecastItem.appendChild(datePara);
+    forecastItem.appendChild(forecastContainer);
+    forecastItem.appendChild(highLowPara);
+
+    return forecastItem;
+}
+
+async function displayWeekForecast(weatherData) {
+    let weekForecastContainer = document.querySelector(".week-forecast-items");
+    weekForecastContainer.innerHTML = "";
+
+    for (let day of weatherData.dailyForecast) {
+        let forecastDiv = await createDayForecastElement(day.date, day.icon, day.conditions, day.tempMax, day.tempMin);
+        weekForecastContainer.appendChild(forecastDiv);
     }
 }
 
