@@ -6,7 +6,7 @@ import * as utils from "./utils";
 const searchForm = document.querySelector(".search-form");
 const loader = document.getElementById("loader-dialog");
 const celsiusBtn = document.getElementById("celsius-btn");
-const farenheitBtn = document.getElementById("farenheit-btn");
+const fahrenheitBtn = document.getElementById("fahrenheit-btn");
 
 let weatherData;
 
@@ -16,19 +16,20 @@ async function getAndProcessWeatherData(location) {
     return processedWeatherData;
 }
 
+function updateWeatherDisplay() {
+    dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
+    dom.updateConditions(weatherData.feelsLike, weatherData.humidity, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex, weatherData.visibility);
+    dom.displayHourlyForecast(weatherData);
+    dom.displayWeekForecast(weatherData);
+}
+
 searchForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     loader.showModal();
     try {
         const searchQuery =  document.getElementById("search-input").value;
         weatherData = await getAndProcessWeatherData(searchQuery);       
-        
-        console.log(weatherData)
-        
-        dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
-        dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
-        dom.displayHourlyForecast(weatherData);
-        dom.displayWeekForecast(weatherData);
+        updateWeatherDisplay();
         loader.close();
     } catch (error) {
         console.log(error);
@@ -40,28 +41,19 @@ searchForm.addEventListener("submit", async (e) => {
 celsiusBtn.addEventListener("click", () => {
     utils.setCurrentTempUnit("C");
     dom.setActiveBtn();
-    dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
-    dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
-    dom.displayHourlyForecast(weatherData);
-    dom.displayWeekForecast(weatherData);
+    updateWeatherDisplay();
 })
 
-farenheitBtn.addEventListener("click", () => {
+fahrenheitBtn.addEventListener("click", () => {
     utils.setCurrentTempUnit("F");
     dom.setActiveBtn();
-    dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
-    dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
-    dom.displayHourlyForecast(weatherData);
-    dom.displayWeekForecast(weatherData);
+    updateWeatherDisplay();
 })
 
 async function displayDefault() {
     try {
         weatherData = await getAndProcessWeatherData("vancouver");
-        dom.updateCurrentWeather(weatherData.resolvedAddress, weatherData.temp, weatherData.icon, weatherData.conditions);
-        dom.updateConditions(weatherData.feelsLike, weatherData.precipChance, weatherData.windSpeed, weatherData.uvIndex);
-        dom.displayHourlyForecast(weatherData);
-        dom.displayWeekForecast(weatherData);
+        updateWeatherDisplay();
     } catch (error) {
         console.log(error);
         dom.displayError(error);

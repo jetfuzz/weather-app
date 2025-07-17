@@ -33,6 +33,8 @@ function processWeatherData(weatherData) {
         windSpeed: weatherData.currentConditions.windspeed,
         precipChance: weatherData.currentConditions.precipprob,
         uvIndex: weatherData.currentConditions.uvindex,
+        humidity: weatherData.currentConditions.humidity,
+        visibility: weatherData.currentConditions.visibility,
 
         hourlyForecast: weatherData.days[0].hours.map(hour => ({
             time: hour.datetime,

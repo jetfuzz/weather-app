@@ -208,7 +208,7 @@ header {
 
 .conditions-grid {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   gap: 25px;
   margin-top: 5px;
   padding: 12px 18px;

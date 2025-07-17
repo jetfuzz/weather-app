@@ -40,16 +40,20 @@ async function updateCurrentWeather(location, temp, icon, conditions) {
     currentWeatherDiv.appendChild(currentConditions);
 }
 
-function updateConditions(feelsLike, rainChance, wind, uvIndex) {
+function updateConditions(feelsLike, humidity, rainChance, wind, uvIndex, visibility) {
     let feelsLikeEle = document.getElementById("feels-like");
+    let humidityEle = document.getElementById("humidity");
     let rainChanceEle = document.getElementById("rain-chance");
     let windEle = document.getElementById("wind");
     let uvIndexEle = document.getElementById("uv-index");
+    let visibilityEle = document.getElementById("visibility");
 
     feelsLikeEle.innerHTML = `${utils.formatTemp(feelsLike)}°`;
+    humidityEle.innerHTML = `${Math.round(humidity)}%`;
     rainChanceEle.innerHTML = `${rainChance}%`;
     windEle.innerHTML = `${wind} m/ph`;
     uvIndexEle.innerHTML = uvIndex;
+    visibilityEle.innerHTML = `${visibility} mi`;
 }
 
 async function createHourForecastElement(time, icon, temp) {
@@ -142,12 +146,12 @@ function hideError() {
 
 function setActiveBtn() {
     const celsiusBtn = document.getElementById("celsius-btn");
-    const farenheitBtn = document.getElementById("farenheit-btn");
+    const fahrenheitBtn = document.getElementById("fahrenheit-btn");
   if (utils.getCurrentTempUnit() === "C") {
     celsiusBtn.classList.add("active");
-    farenheitBtn.classList.remove("active");
+    fahrenheitBtn.classList.remove("active");
   } else {
     celsiusBtn.classList.remove("active");
-    farenheitBtn.classList.add("active");
+    fahrenheitBtn.classList.add("active");
   }
 }
