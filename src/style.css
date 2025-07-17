@@ -262,7 +262,6 @@ header {
 /* forecast */
 .forecast-items {
   display: flex;
-  justify-content: center;
   margin: 5px 0 0 0;
   overflow: scroll;
 }
@@ -342,5 +341,75 @@ dialog:focus {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* breakpoints */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+
+  .logo {
+    font-size: 2em;
+    gap: 8px;
+  }
+
+  .search-form {
+    margin: 5px;
+  }
+
+  .current-weather {
+    text-align: center;
+    margin: 0;
+  }
+
+  .temp-container {
+    justify-content: center;
+  }
+
+  .current-conditions > h3,
+  .day-forecast > h3,
+  .week-forecast > h3 {
+    text-align: center;
+  }
+
+  .conditions-grid {
+    grid-template-columns: auto;
+  }
+
+  .conditions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .forecast-items {
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    height: 500px;
+    overflow: scroll;
+  }
+
+  .forecast-item {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    height: 65px;
+  }
+
+  .week-forecast-items {
+    height: 500px;
+    overflow: scroll;
+  }
+
+  .week-forecast-container > p {
+    display: none;
+  }
+
+  .week-forecast-container > img {
+    height: 35px;
   }
 }

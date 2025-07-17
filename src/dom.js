@@ -57,9 +57,9 @@ function updateConditions(
   feelsLikeEle.innerHTML = `${utils.formatTemp(feelsLike)}°`;
   humidityEle.innerHTML = `${Math.round(humidity)}%`;
   rainChanceEle.innerHTML = `${rainChance}%`;
-  windEle.innerHTML = `${utils.formatLength(wind)} ${utils.getSpeedUnit()}`; 
+  windEle.innerHTML = `${utils.formatLength(wind)} ${utils.getSpeedUnit()}`;
   uvIndexEle.innerHTML = uvIndex;
-  visibilityEle.innerHTML = `${utils.formatLength(visibility)} ${utils.getVisibilityUnit()}`; 
+  visibilityEle.innerHTML = `${utils.formatLength(visibility)} ${utils.getVisibilityUnit()}`;
 }
 
 async function createHourForecastElement(time, icon, temp) {

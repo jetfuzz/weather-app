@@ -63,7 +63,7 @@ fahrenheitBtn.addEventListener("click", () => {
 });
 
 async function displayDefault() {
-    loader.showModal();
+  loader.showModal();
   try {
     weatherData = await getAndProcessWeatherData("vancouver");
     updateWeatherDisplay();

@@ -1,19 +1,19 @@
 export { getWeatherData, processWeatherData };
 
 async function getWeatherData(location) {
-    const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=K8Y4TEWSGQMUAAAPR7FZNFFJG`,
-    );
-    if (!response.ok) {
-      if (response.status === 400) {
-        throw new Error("Location not found");
-      } else if (response.status === 429 || response.status === 401) {
-        throw new Error("Service unavailable, please try again later");
-      }
-      throw new Error(`Response status: ${response.status}`);
+  const response = await fetch(
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=K8Y4TEWSGQMUAAAPR7FZNFFJG`,
+  );
+  if (!response.ok) {
+    if (response.status === 400) {
+      throw new Error("Location not found");
+    } else if (response.status === 429 || response.status === 401) {
+      throw new Error("Service unavailable, please try again later");
     }
-    const weatherData = await response.json();
-    return weatherData;
+    throw new Error(`Response status: ${response.status}`);
+  }
+  const weatherData = await response.json();
+  return weatherData;
 }
 
 function processWeatherData(weatherData) {

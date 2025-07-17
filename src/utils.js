@@ -41,7 +41,7 @@ async function getWeatherIcon(icon) {
     let weatherIcon = await icons[icon];
     return weatherIcon.default;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     let fallbackIcon = await icons["fallback"];
     return fallbackIcon.default;
   }
@@ -93,7 +93,7 @@ function formatLength(length) {
 }
 
 function getSpeedUnit() {
-    if (currentUnitSystem === "metric") {
+  if (currentUnitSystem === "metric") {
     return "k/ph";
   } else {
     return "m/ph";
@@ -101,7 +101,7 @@ function getSpeedUnit() {
 }
 
 function getVisibilityUnit() {
-    if (currentUnitSystem === "metric") {
+  if (currentUnitSystem === "metric") {
     return "km";
   } else {
     return "mi";
