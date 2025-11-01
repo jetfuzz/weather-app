@@ -264,6 +264,7 @@ header {
   display: flex;
   margin: 5px 0 0 0;
   overflow: scroll;
+  overflow-y: hidden;
 }
 
 .forecast-item {
