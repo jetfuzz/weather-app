@@ -2,16 +2,17 @@
 
 A weather web app that uses the Visual Crossing Weather API to display current conditions and forecast for any location worldwide.
 
+![Skyview Weather App](./images/Screenshot_2026-01-10_14-59-38.png)
+
 🔗 **[Live Demo](https://jetfuzz.github.io/weather-app/)**
 
 ## Features
 
 * Real-time current weather with temperature, location, and current conditions
-* Comprehensive air conditions including feels-like temperature, humidity, chance of rain, wind speed, UV index, and visibility
-* Detailed hourly and daily forecast predictions
-* Ability to toggle between Metric and Imperial units with instant updates
-* Responsive design for both desktop and mobile devices
-* User-friendly error handling with clear messages for invalid locations or API issues
+* Current air conditions including: feels-like temperature, humidity, chance of rain, wind speed, UV index, and visibility
+* Hourly and daily forecasts
+* Ability to toggle between Metric and Imperial units 
+* User-friendly error handling and responsive design
 
 ## Technologies and Tools
 
@@ -22,10 +23,10 @@ A weather web app that uses the Visual Crossing Weather API to display current c
 
 ## Learning Outcomes
 
-* Implemented ES6 modules for clean code organization
+* Used ES6 modules for code organization
 * Learned to work with external APIs and handle asynchronous operations
-* Used CSS Grid and Flexbox to create responsive layouts that work across all devices
-* Implemented user-friendly error messaging and loading states for better UX
+* Used CSS Grid and Flexbox to create responsive layouts
+* Implemented error messaging and loading states for better UX
 
 ## Attributions
 
