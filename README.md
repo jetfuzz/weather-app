@@ -7,12 +7,18 @@ A weather web app that uses the Visual Crossing Weather API to display current c
 🔗 **[Live Demo](https://jetfuzz.github.io/weather-app/)**
 
 ## Features
-
 * Real-time current weather with temperature, location, and current conditions
 * Current air conditions including: feels-like temperature, humidity, chance of rain, wind speed, UV index, and visibility
 * Hourly and daily forecasts
 * Ability to toggle between Metric and Imperial units 
 * User-friendly error handling and responsive design
+
+
+## Installation
+* `git clone https://github.com/jetfuzz/weather-app.git`
+* `cd weather-app`
+* `npm install`
+* `npm run dev`
 
 ## Technologies and Tools
 
